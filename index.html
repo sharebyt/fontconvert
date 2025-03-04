@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html to ise>
+
+<head>
+  <title>Font Convert</title>
+<link rel='preload'as="style"
+href='https://ise.web.app/110/l.css'>
+<link rel='preload'as="script"
+href='https://ise.web.app/110/sen.js'>
+<link rel='preload'as="script"
+href='https://ise.web.app/110/l.js'>
+<link rel='stylesheet' href='https://ise.web.app/110/l.css'>
+</head>
+
+<app>app("font convert");
+app.icon(3);</app>
+<body>
+<see center>
+      <tap do="copy(bon('[ou]').text);" ou>
+      Click me to copy
+    </tap>
+</see>
+<nav bol2 pad="10">
+  <row no-m no-p>
+  <ask gh no-m bbg bol2 do="co();">
+    </ask>
+<select center no-m style="text-align:center;border:0;
+max-width:0.9in;"bbg dj bol onchange="co();">
+  <option value="italic">
+    <say>
+      Italic
+    </say>
+  </option>
+    <option value="clear">
+    <say>
+      Clear
+    </say>
+  </option>
+    <option value="bold">
+    <say>
+      Bold
+    </say>
+  </option>
+    <option value="bolditalic">
+    <say>
+      Bold Italic
+    </say>
+  </option>
+</select>
+
+
+    </row>
+</nav>
+</body>
+<script src="https://ise.web.app/110/sen.js"> </script>
+<script src="https://ise.web.app/110/l.js"> </script>
+<script>
+const mappings = {
+    normal: [..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ%&.0123456789_></=÷×+()[]!@#-':\",;?"],
+    wide: [..."ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ％＆.０１２３４５６７８９＿＼＝＋（）！＠＃－',"],
+    clear: [..."𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹%&.𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫_>"],
+    boldItalic: [..."𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕%&.𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗_>"],
+    italic: [..."𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡%&.0123456789_>"],
+    bold: [..."𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘵𝘶𝘷𝘄𝘹𝘺𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭%&.𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵_>"]
+};
+
+const cts=(input, style)=> {
+    if (!mappings[style]) return input;
+
+    return [...input].map(char => {
+        let index = mappings.normal.indexOf(char);
+        return index !== -1 ? mappings[style][index] : char;
+    }).join('');
+}
+
+const co=()=>{
+  bon('tap[ou]').text = cts(bon('[gh]').text, bon('[dj]').value);
+}
+</script>
+
+<script>
+sen.apply();func();
+</script>
