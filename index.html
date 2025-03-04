@@ -13,6 +13,22 @@ href='https://ise.web.app/110/l.js'>
 <link rel='stylesheet' href='https://ise.web.app/110/l.css'>
 </head>
 
+<style>
+  html, body {
+  touch-action: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+nav:active + input[type="checkbox"] {
+  visibility: visible;
+}
+</style>
 <app>app("font convert");
 app.icon(3);</app>
 <body>
@@ -62,6 +78,7 @@ max-width:0.9in;"bbg dj bol onchange="co();">
 
     </row>
 </nav>
+  <input hide type="checkbox">
 </body>
 <script src="https://ise.web.app/110/sen.js"> </script>
 <script src="https://ise.web.app/110/l.js"> </script>
@@ -96,7 +113,13 @@ const co=()=>{
 bon('say[ou]').text=(bon('[dj]').value=='normal') ? nmt(bon('[gh]').text) : cts(bon('[gh]').text,bon('[dj]').value);
 }
 
+document.addEventListener("gesturestart", e => e.preventDefault());
+document.addEventListener("wheel", e => e.ctrlKey && e.preventDefault());
 
+document.querySelector("nav").addEventListener("click", () => {
+  navigator.vibrate && navigator.vibrate(50);
+  bon("input[type='checkbox']").click();
+});
 </script>
 
 <script>
