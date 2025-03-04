@@ -75,6 +75,16 @@ const mappings = {
     bold: [..."𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭%&.𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵_>"]
 };
 
+  const nmt = input => {
+    return [...input].map(char => {
+        for (let style in mappings) {
+      let index = mappings[style].indexOf(char);
+  (index !== -1) ? (return mappings.normal[index]) : "";
+    }
+  return char;
+    }).join('');
+};
+  
 const cts=(input, style)=> {
     if (!mappings[style]) return input;
 
@@ -84,9 +94,9 @@ const cts=(input, style)=> {
     }).join('');
 }
 
-const co=()=>{
-  bon('tap[ou]').text = cts(bon('[gh]').text, bon('[dj]').value);
-}
+const co=()=>{  
+bon('tap[ou]').text=bon('[dj]').value=='normal'?nmt(bon('[gh]').text):cts(bon('[gh]').text,bon('[dj]').value);  
+};
 </script>
 
 <script>
