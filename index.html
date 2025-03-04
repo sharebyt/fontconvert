@@ -76,14 +76,12 @@ const mappings = {
 };
 
   const nmt = input => {
-    return [...input].map(char => {
-        for (let style in mappings) {
-      let index = mappings[style].indexOf(char);
-  (index !== -1) ? (return mappings.normal[index]) : "";
-    }
-  return char;
+    return [...input].map(char=>{
+        for(let key in mappings)if(key!='normal'&&mappings[key].includes(char))
+            return mappings.normal[mappings[key].indexOf(char)];
+        return char;
     }).join('');
-};
+  }
   
 const cts=(input, style)=> {
     if (!mappings[style]) return input;
@@ -94,9 +92,11 @@ const cts=(input, style)=> {
     }).join('');
 }
 
-const co=()=>{  
-bon('tap[ou]').text=bon('[dj]').value=='normal'?nmt(bon('[gh]').text):cts(bon('[gh]').text,bon('[dj]').value);  
-};
+const co=()=>{
+    let txt=bon('[gh]').text,djv=bon('[dj]').value;
+    bon('tap[ou]').text=(djv=='normal')?nmt(txt):cts(txt,v);
+}
+
 </script>
 
 <script>
