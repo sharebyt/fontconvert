@@ -17,8 +17,8 @@ href='https://ise.web.app/110/l.js'>
 app.icon(3);</app>
 <body>
 <see center>
-      <tap do="copy(bon('[ou]').text);" ou>
-      Click me to copy
+      <tap pad="30" bol2 do="copy(bon('[ou]').text);" >
+      <say ou>Click me to copy</say>
     </tap>
 </see>
 <nav bol2 pad="10">
@@ -93,8 +93,7 @@ const cts=(input, style)=> {
 }
 
 const co=()=>{
-bon('tap[ou]').text=
-    (bon('[dj]').value=='normal') ? nmt(bon('[gh]').text) : cts(bon('[gh]').text,bon('[dj]').value);
+bon('say[ou]').text=(bon('[dj]').value=='normal') ? nmt(bon('[gh]').text) : cts(bon('[gh]').text,bon('[dj]').value);
 }
 
 
